@@ -11,6 +11,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { IconsOptions } from "./IconsOptions";
 import { Button } from "@mui/material";
+
 export const Sidebar = () => {
   return (
     <Container>

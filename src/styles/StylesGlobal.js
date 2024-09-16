@@ -11,7 +11,7 @@ export default createGlobalStyle`
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
-    background-color: #ffffff; // Cambiado a blanco para parecerse más a Twitter
+    background-color: #000000; 
   }
 
   :root {
@@ -20,14 +20,14 @@ export default createGlobalStyle`
     font-weight: 400;
 
     color-scheme: light dark;
-    color: #14171a; // Color de texto principal de Twitter
+    color: #ffffff; 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
     --twittercolor: #1DA1F2;
-    --Hover: rgba(29, 161, 242, 0.1); // Ajustado para que sea azul claro en hover
+    --Hover: rgba(29, 161, 242, 0.1); 
   }
 
   .App {
@@ -35,6 +35,6 @@ export default createGlobalStyle`
     height: 100vh;
     max-width: 1250px;
     margin: 0 auto;
-    border: none; // Quitamos el borde rojo
+    border: none; 
   }
 `;
