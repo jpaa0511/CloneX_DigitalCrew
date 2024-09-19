@@ -1,20 +1,9 @@
-import { Home } from "./Components/Home";
-import { Sidebar } from "./Components/Sidebar";
-import { Widgets } from "./Components/Widgets";
-import GlobalStyles from "./styles/StylesGlobal";
+import AppRouter from "./AppRoute.jsx"
 
 function App() {
   return (
     <>
-      <div className="App">
-        {/* sidebar */}
-        <Sidebar />
-        {/*Home */}
-        <Home />
-        {/*widgets */}
-        <Widgets />
-        <GlobalStyles />
-      </div>
+    <AppRouter />;
     </>
   );
 }
