@@ -18,6 +18,7 @@ export default createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
+    margin: -8px;
 
     color-scheme: light dark;
     color: #ffffff; 

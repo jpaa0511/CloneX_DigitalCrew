@@ -3,7 +3,7 @@ import AppRouter from "./AppRoute.jsx"
 function App() {
   return (
     <>
-    <AppRouter />;
+    <AppRouter />
     </>
   );
 }
