@@ -1,80 +1,93 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
+export const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-export const Div = styled.div`
-.container{
-    display: flex;
-    background: linear-gradient(to right, white 0%, white 50%,#00acee 0%, #00acee 50%); 
-    min-height:100vh;
-    margin: -10px;
-}
-
-.logo{
-    width: 300px;
-    height: 300px;
-    margin-top: 70px;
-    margin-left: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-h1{
-    text-align: center;
-    color: #00acee;
-    font-size: 50px;
-    margin-bottom: 20px;
-    margin-left: 150px;
-}
-
-.login-container {
+  body, html {
     width: 100%;
-    max-width: 300px;
-    margin-top: 100px;
-    margin-left: 400px;
-    margin-bottom: 100px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+    background-color: black;
   }
-  
-  h2 {
-    color: #00acee; 
-    font-size: 50px;
-    margin-bottom: 20px;
+
+  #root {
+    width: 100%;
+    height: 100%;
   }
-  
-  .input-group {
-    margin-bottom: 15px;
-  }
-  
-  input {
-    width: 90%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  button {
-    width: 95%;
-    padding: 10px;
-    background-color: #1da1f2;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button:hover {
+`;
+
+export const Container = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  font-family: "Arial", sans-serif;
+`;
+
+export const SidebarLeft = styled.div`
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+`;
+
+export const MainContent = styled.div`
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+`;
+
+export const Title = styled.h1`
+  font-size: 31px;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #e7e9ea;
+`;
+
+export const LoginButton = styled.button`
+  width: 300px;
+  padding: 0.75rem 1rem;
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
     background-color: #1a91da;
-  }`;
+  }
+`;
 
+export const UserData = styled.div`
+  background-color: #192734;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  width: 300px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #e7e9ea;
+`;
 
+export const Pre = styled.pre`
+  white-space: pre-wrap;
+  word-break: break-word;
+`;
 
-
+export const Form = styled.div`
+  margin-top: 2rem;
+`;
+export const Input = styled.div`
+  margin-top: 2rem;
+`;

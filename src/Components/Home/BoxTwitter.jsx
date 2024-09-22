@@ -29,7 +29,7 @@ export const BoxTwitter = () => {
           <PollIcon />
         </DivIcon>
         <input type="text" placeholder="URL: Opcional de imeg" />
-        <Button type="submit">Twitter</Button>
+        <Button type="submit">Tweet</Button>
       </Div>
     </Boxtwitter>
   );
