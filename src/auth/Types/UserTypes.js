@@ -1,4 +1,5 @@
 export const userTypes = {
-  logIn: "[User] LogIn",
-  logOut: "[User] LogOut",
+  logIn: "[User] Log In",
+  logOut: "[User] Log Out",
+  error: "[User] Error",
 };

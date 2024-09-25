@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../auth/contexts/UserContext";
+import { UserContext } from "../../auth/Contexts/UserContext";
 import {
   GlobalStyle,
   Container,
@@ -8,19 +8,36 @@ import {
   MainContent,
   Title,
   LoginButton,
+  Input,
+  Form,
 } from "./LoginStyle";
 import XIcon from "@mui/icons-material/X";
 
-export const Login = () => {
-  const { loginUser } = useContext(UserContext);
+const Login = () => {
+  const { loginUser, errorMessage } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const onLogin = () => {
-    loginUser({
-      name: "Usuario de Ejemplo",
-      email: "usuario@example.com",
+  const [formState, setFormState] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = formState;
+
+  const onInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
     });
-    navigate("/main");
+  };
+
+  const onLogin = async (event) => {
+    event.preventDefault();
+    const isValidLogin = loginUser(email, password);
+    if (isValidLogin) {
+      navigate("/main", { replace: true });
+    }
   };
 
   return (
@@ -31,10 +48,40 @@ export const Login = () => {
           <XIcon style={{ fontSize: "400px", color: "#e7e9ea" }} />
         </SidebarLeft>
         <MainContent>
-          <Title>Inicia sesión en X</Title>
-          <LoginButton onClick={onLogin}>Iniciar sesión</LoginButton>
+          <Title>Sign in to X</Title>
+          <form onSubmit={onLogin}>
+            <Form>
+              <Input>
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={onInputChange}
+                  placeholder="Enter your email"
+                  required
+                />
+              </Input>
+              <Input>
+                <label htmlFor="password">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={onInputChange}
+                  placeholder="Enter your password"
+                  required
+                />
+              </Input>
+              <LoginButton type="submit">Login</LoginButton>
+            </Form>
+            {errorMessage && (
+              <p style={{ color: "red", marginTop: "10px" }}>{errorMessage}</p>
+            )}
+          </form>
         </MainContent>
       </Container>
     </>
   );
 };
+export default Login;

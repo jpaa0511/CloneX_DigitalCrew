@@ -6,6 +6,7 @@ import { userTypes } from "../types/UserTypes";
 const initialState = {
   logged: false,
   user: null,
+  errorMessage: null,
 };
 
 const init = () => {
@@ -19,17 +20,31 @@ const init = () => {
 export const UserProvider = ({ children }) => {
   const [userState, dispatch] = useReducer(UserReducer, initialState, init);
 
-  const loginUser = (userData = {}) => {
-    const action = {
-      type: userTypes.logIn,
-      payload: {
+  const loginUser = (email = "", password = "") => {
+    const validEmail = "usuario@example.com";
+    const validPassword = "123456";
+
+    if (email === validEmail && password === validPassword) {
+      const userData = {
         uid: new Date().getTime(),
-        name: userData.name || "Usuario",
-        email: userData.email || "usuario@example.com",
-      },
-    };
-    localStorage.setItem("user", JSON.stringify(action.payload));
-    dispatch(action);
+        name: "Example User",
+        email,
+      };
+
+      localStorage.setItem("user", JSON.stringify(userData));
+      dispatch({
+        type: userTypes.logIn,
+        payload: userData,
+      });
+
+      return true;
+    } else {
+      dispatch({
+        type: userTypes.error,
+        payload: "Incorrect credentials",
+      });
+      return false;
+    }
   };
 
   const logoutUser = () => {
@@ -43,6 +58,7 @@ export const UserProvider = ({ children }) => {
         ...userState,
         loginUser,
         logoutUser,
+        errorMessage: userState.errorMessage,
       }}
     >
       {children}
