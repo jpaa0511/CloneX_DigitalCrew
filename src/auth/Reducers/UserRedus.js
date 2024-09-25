@@ -7,13 +7,22 @@ export const UserReducer = (state, action) => {
         ...state,
         logged: true,
         user: action.payload,
+        errorMessage: null,
       };
+
     case userTypes.logOut:
       return {
-        ...state,
         logged: false,
         user: null,
+        errorMessage: null,
       };
+
+    case userTypes.error:
+      return {
+        ...state,
+        errorMessage: action.payload,
+      };
+
     default:
       return state;
   }

@@ -1,23 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Navigate, useLocation } from "react-router-dom";
-import { UserContext } from "../auth/contexts/UserContext";
+import React, { useContext } from "react";
+import { Navigate } from "react-router-dom";
+import { UserContext } from "../auth/Contexts/UserContext";
 
-const PrivateRoute = ({ children }) => {
+export const PrivateRoute = ({ children }) => {
   const { logged } = useContext(UserContext);
-  const location = useLocation();
-  const [shouldRedirect, setShouldRedirect] = useState(false);
 
-  useEffect(() => {
-    if (!logged) {
-      setShouldRedirect(true);
-    }
-  }, [logged]);
-
-  if (shouldRedirect) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
-
-  return children;
+  return logged ? children : <Navigate to="/login" />;
 };
-
-export default PrivateRoute;
