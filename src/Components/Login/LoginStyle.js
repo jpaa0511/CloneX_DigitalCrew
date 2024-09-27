@@ -89,5 +89,25 @@ export const Form = styled.div`
   margin-top: 2rem;
 `;
 export const Input = styled.div`
-  margin-top: 2rem;
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  input {
+    width: 42%;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #1da1f2;
+    }
+  }
 `;
